@@ -1,121 +1,578 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-72S7XVCZHT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-72S7XVCZHT');
-</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72S7XVCZHT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-72S7XVCZHT');
+</script>
+
 <title>Apni Shubhkamna</title>
+
 <meta name="description" content="Apna naam aur photo lagakar festival greeting card banaye aur WhatsApp par share karein.">
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,sans-serif;background:#f5f6fa;color:#222}
-.wrap{max-width:520px;margin:auto;padding:18px}.brand{text-align:center;font-weight:800;font-size:25px;margin:8px 0 18px}
-.panel{background:#fff;border-radius:22px;padding:18px;box-shadow:0 8px 30px #00000012}
-label{display:block;font-weight:700;margin:12px 0 7px}input,select,button{width:100%;padding:13px;border:1px solid #ddd;border-radius:12px;font-size:16px}
-input[type=file]{padding:10px;background:#fafafa}button{border:0;font-weight:800;cursor:pointer;margin-top:10px}
-.primary{background:#111;color:#fff}.green{background:#25D366;color:#fff}.light{background:#eee}
-.canvasbox{margin:18px auto 8px;max-width:420px}.hint{text-align:center;color:#777;font-size:13px}
-#card{width:100%;display:block;border-radius:18px;background:#eee}
-footer{text-align:center;color:#888;font-size:12px;margin:16px 0}
-.small{font-size:12px;color:#777;margin-top:6px}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,sans-serif;
+  background:#f5f6fa;
+  color:#222;
+}
+
+.wrap{
+  max-width:520px;
+  margin:auto;
+  padding:18px;
+}
+
+.brand{
+  text-align:center;
+  font-weight:800;
+  font-size:25px;
+  margin:8px 0 18px;
+}
+
+.panel{
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 8px 30px #00000012;
+}
+
+label{
+  display:block;
+  font-weight:700;
+  margin:12px 0 7px;
+}
+
+input,select,button{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+}
+
+input[type=file]{
+  padding:10px;
+  background:#fafafa;
+}
+
+button{
+  border:0;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.primary{
+  background:#111;
+  color:#fff;
+}
+
+.green{
+  background:#25D366;
+  color:#fff;
+}
+
+.canvasbox{
+  margin:18px auto 8px;
+  max-width:420px;
+}
+
+.hint{
+  text-align:center;
+  color:#777;
+  font-size:13px;
+}
+
+#card{
+  width:100%;
+  display:block;
+  border-radius:18px;
+  background:#eee;
+}
+
+footer{
+  text-align:center;
+  color:#888;
+  font-size:12px;
+  margin:16px 0;
+}
+
+.small{
+  font-size:12px;
+  color:#777;
+  margin-top:6px;
+}
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
-  <div class="brand">✨ Apni Shubhkamna</div>
-  <div class="panel">
-    <label>Festival चुनें</label>
-    <select id="festival"></select>
 
-    <label>अपना नाम लिखें</label>
-    <input id="name" maxlength="30" placeholder="जैसे: Gagan">
+<div class="brand">
+✨ Apni Shubhkamna
+</div>
 
-    <label>अपनी फोटो लगाएं</label>
-    <input id="photo" type="file" accept="image/*">
-    <div class="small">फोटो आपके फोन से सीधे कार्ड में लगती है; सर्वर पर upload नहीं होती।</div>
+<div class="panel">
 
-    <div class="canvasbox"><canvas id="card" width="1080" height="1350"></canvas></div>
-    <div class="hint">नीचे बटन से कार्ड डाउनलोड या WhatsApp पर भेजें।</div>
+<label>Festival चुनें</label>
+<select id="festival"></select>
 
-    <button class="primary" id="download">⬇️ Greeting Card डाउनलोड करें</button>
-    <button class="green" id="whatsapp">🟢 WhatsApp पर Share करें</button>
-  </div>
-  <footer>आपका नाम और फोटो इस पेज पर ही process होते हैं।</footer>
+<label>अपना नाम लिखें</label>
+<input id="name" maxlength="30" placeholder="जैसे: Gagan">
+
+<label>अपनी फोटो लगाएं</label>
+<input id="photo" type="file" accept="image/*">
+
+<div class="small">
+फोटो आपके फोन से सीधे कार्ड में लगती है; सर्वर पर upload नहीं होती।
+</div>
+
+<div class="canvasbox">
+<canvas id="card" width="1080" height="1350"></canvas>
+</div>
+
+<div class="hint">
+नीचे बटन से कार्ड डाउनलोड या WhatsApp पर लिंक भेजें।
+</div>
+
+<button class="primary" id="download">
+⬇️ Greeting Card डाउनलोड करें
+</button>
+
+<button class="green" id="whatsapp">
+🟢 WhatsApp पर Share करें
+</button>
+
+</div>
+
+<footer>
+आपका नाम और फोटो इस पेज पर ही process होते हैं।
+</footer>
+
 </div>
 
 <script>
+
 const festivals = [
- {id:"independence",name:"🇮🇳 स्वतंत्रता दिवस",title:"स्वतंत्रता दिवस",sub:"आपको एवं आपके पूरे परिवार को",msg:"हार्दिक शुभकामनाएं",emoji:"🇮🇳",c1:"#ff9933",c2:"#138808"},
- {id:"republic",name:"🇮🇳 गणतंत्र दिवस",title:"गणतंत्र दिवस",sub:"आपको एवं आपके पूरे परिवार को",msg:"हार्दिक शुभकामनाएं",emoji:"🇮🇳",c1:"#ff9933",c2:"#138808"},
- {id:"diwali",name:"🪔 दीपावली",title:"शुभ दीपावली",sub:"आपके जीवन में सुख, समृद्धि और खुशियां आएं",msg:"दीपावली की हार्दिक शुभकामनाएं",emoji:"🪔",c1:"#ffb300",c2:"#7b1fa2"},
- {id:"holi",name:"🌈 होली",title:"होली की शुभकामनाएं",sub:"आपका जीवन रंगों से भर जाए",msg:"होली की हार्दिक शुभकामनाएं",emoji:"🌈",c1:"#e91e63",c2:"#673ab7"},
- {id:"janmashtami",name:"🦚 जन्माष्टमी",title:"श्री कृष्ण जन्माष्टमी",sub:"राधे राधे",msg:"जन्माष्टमी की हार्दिक शुभकामनाएं",emoji:"🦚",c1:"#1565c0",c2:"#4527a0"},
- {id:"ganesh",name:"🙏 गणेश चतुर्थी",title:"गणेश चतुर्थी",sub:"गणपति बप्पा मोरया",msg:"गणेश चतुर्थी की हार्दिक शुभकामनाएं",emoji:"🙏",c1:"#ff8f00",c2:"#c62828"},
- {id:"navratri",name:"🌺 नवरात्रि",title:"शुभ नवरात्रि",sub:"मां दुर्गा की कृपा आप पर बनी रहे",msg:"नवरात्रि की हार्दिक शुभकामनाएं",emoji:"🌺",c1:"#d81b60",c2:"#6a1b9a"},
- {id:"rakhi",name:"🎀 रक्षाबंधन",title:"रक्षाबंधन",sub:"भाई-बहन का प्यार हमेशा बना रहे",msg:"रक्षाबंधन की हार्दिक शुभकामनाएं",emoji:"🎀",c1:"#ec407a",c2:"#8e24aa"},
- {id:"newyear",name:"🎉 नया साल",title:"Happy New Year",sub:"नया साल आपके लिए खुशियां लेकर आए",msg:"नव वर्ष की हार्दिक शुभकामनाएं",emoji:"🎉",c1:"#1565c0",c2:"#6a1b9a"}
+
+{
+id:"independence",
+name:"🇮🇳 स्वतंत्रता दिवस",
+title:"स्वतंत्रता दिवस",
+sub:"आपको एवं आपके पूरे परिवार को",
+msg:"हार्दिक शुभकामनाएं",
+emoji:"🇮🇳",
+c1:"#ff9933",
+c2:"#138808"
+},
+
+{
+id:"republic",
+name:"🇮🇳 गणतंत्र दिवस",
+title:"गणतंत्र दिवस",
+sub:"आपको एवं आपके पूरे परिवार को",
+msg:"हार्दिक शुभकामनाएं",
+emoji:"🇮🇳",
+c1:"#ff9933",
+c2:"#138808"
+},
+
+{
+id:"diwali",
+name:"🪔 दीपावली",
+title:"शुभ दीपावली",
+sub:"आपके जीवन में सुख, समृद्धि और खुशियां आएं",
+msg:"दीपावली की हार्दिक शुभकामनाएं",
+emoji:"🪔",
+c1:"#ffb300",
+c2:"#7b1fa2"
+},
+
+{
+id:"holi",
+name:"🌈 होली",
+title:"होली की शुभकामनाएं",
+sub:"आपका जीवन रंगों से भर जाए",
+msg:"होली की हार्दिक शुभकामनाएं",
+emoji:"🌈",
+c1:"#e91e63",
+c2:"#673ab7"
+},
+
+{
+id:"janmashtami",
+name:"🦚 जन्माष्टमी",
+title:"श्री कृष्ण जन्माष्टमी",
+sub:"राधे राधे",
+msg:"जन्माष्टमी की हार्दिक शुभकामनाएं",
+emoji:"🦚",
+c1:"#1565c0",
+c2:"#4527a0"
+},
+
+{
+id:"ganesh",
+name:"🙏 गणेश चतुर्थी",
+title:"गणेश चतुर्थी",
+sub:"गणपति बप्पा मोरया",
+msg:"गणेश चतुर्थी की हार्दिक शुभकामनाएं",
+emoji:"🙏",
+c1:"#ff8f00",
+c2:"#c62828"
+},
+
+{
+id:"navratri",
+name:"🌺 नवरात्रि",
+title:"शुभ नवरात्रि",
+sub:"मां दुर्गा की कृपा आप पर बनी रहे",
+msg:"नवरात्रि की हार्दिक शुभकामनाएं",
+emoji:"🌺",
+c1:"#d81b60",
+c2:"#6a1b9a"
+},
+
+{
+id:"rakhi",
+name:"🎀 रक्षाबंधन",
+title:"रक्षाबंधन",
+sub:"भाई-बहन का प्यार हमेशा बना रहे",
+msg:"रक्षाबंधन की हार्दिक शुभकामनाएं",
+emoji:"🎀",
+c1:"#ec407a",
+c2:"#8e24aa"
+},
+
+{
+id:"newyear",
+name:"🎉 नया साल",
+title:"Happy New Year",
+sub:"नया साल आपके लिए खुशियां लेकर आए",
+msg:"नव वर्ष की हार्दिक शुभकामनाएं",
+emoji:"🎉",
+c1:"#1565c0",
+c2:"#6a1b9a"
+}
+
 ];
 
-const sel=document.getElementById("festival"), nameEl=document.getElementById("name"), photoEl=document.getElementById("photo");
-festivals.forEach(f=>{const o=document.createElement("option");o.value=f.id;o.textContent=f.name;sel.appendChild(o)});
-const today=new Date(); if(today.getMonth()===7 && today.getDate()===15) sel.value="independence";
-else if(today.getMonth()===0 && today.getDate()===26) sel.value="republic";
-else if(today.getMonth()===0 && today.getDate()===1) sel.value="newyear";
+const sel=document.getElementById("festival");
+const nameEl=document.getElementById("name");
+const photoEl=document.getElementById("photo");
 
-const canvas=document.getElementById("card"), ctx=canvas.getContext("2d"); let photo=null;
+festivals.forEach(f=>{
+const o=document.createElement("option");
+o.value=f.id;
+o.textContent=f.name;
+sel.appendChild(o);
+});
+
+const today=new Date();
+
+if(today.getMonth()===7 && today.getDate()===15){
+sel.value="independence";
+}
+else if(today.getMonth()===0 && today.getDate()===26){
+sel.value="republic";
+}
+else if(today.getMonth()===0 && today.getDate()===1){
+sel.value="newyear";
+}
+
+const canvas=document.getElementById("card");
+const ctx=canvas.getContext("2d");
+
+let photo=null;
 
 function fitText(text,max,font){
-  ctx.font=font; if(ctx.measureText(text).width<=max)return text;
-  let s=text; while(s.length&&ctx.measureText(s+"…").width>max)s=s.slice(0,-1); return s+"…";
+
+ctx.font=font;
+
+if(ctx.measureText(text).width<=max)
+return text;
+
+let s=text;
+
+while(
+s.length &&
+ctx.measureText(s+"…").width>max
+){
+s=s.slice(0,-1);
 }
+
+return s+"…";
+}
+
 function draw(){
-  const f=festivals.find(x=>x.id===sel.value)||festivals[0], n=(nameEl.value||"आपका नाम").trim();
-  const g=ctx.createLinearGradient(0,0,1080,1350);g.addColorStop(0,f.c1);g.addColorStop(1,f.c2);
-  ctx.fillStyle=g;ctx.fillRect(0,0,1080,1350);
-  ctx.fillStyle="rgba(255,255,255,.12)"; for(let i=0;i<18;i++){ctx.beginPath();ctx.arc((i*197)%1080,100+(i*131)%1250,30+(i%5)*12,0,Math.PI*2);ctx.fill();}
-  ctx.fillStyle="#fff";ctx.textAlign="center";
-  ctx.font="bold 72px sans-serif";ctx.fillText(f.emoji,540,115);
-  ctx.font="bold 60px sans-serif";ctx.fillText(fitText(f.title,900,"bold 60px sans-serif"),540,200);
-  ctx.font="34px sans-serif";ctx.fillText(fitText(f.sub,900,"34px sans-serif"),540,255);
 
-  // photo circle
-  ctx.save();ctx.beginPath();ctx.arc(540,650,230,0,Math.PI*2);ctx.closePath();ctx.clip();
-  if(photo){
-    const r=Math.max(460/photo.width,460/photo.height),w=photo.width*r,h=photo.height*r;
-    ctx.drawImage(photo,540-w/2,650-h/2,w,h);
-  }else{
-    ctx.fillStyle="rgba(255,255,255,.22)";ctx.fillRect(300,420,480,460);
-    ctx.fillStyle="#fff";ctx.font="bold 38px sans-serif";ctx.fillText("अपनी फोटो लगाएं",540,665);
-  }ctx.restore();
-  ctx.strokeStyle="#fff";ctx.lineWidth=10;ctx.beginPath();ctx.arc(540,650,235,0,Math.PI*2);ctx.stroke();
+const f=
+festivals.find(x=>x.id===sel.value)
+||festivals[0];
 
-  ctx.font="bold 58px sans-serif";ctx.fillText(fitText(n,850,"bold 58px sans-serif"),540,970);
-  ctx.font="bold 40px sans-serif";ctx.fillText(fitText(f.msg,900,"bold 40px sans-serif"),540,1040);
-  ctx.font="30px sans-serif";ctx.fillText("आपकी शुभकामनाओं के साथ ❤️",540,1130);
-  ctx.font="24px sans-serif";ctx.globalAlpha=.85;ctx.fillText("Apni Shubhkamna",540,1260);ctx.globalAlpha=1;
+const n=
+(nameEl.value||"आपका नाम").trim();
+
+const g=
+ctx.createLinearGradient(
+0,0,1080,1350
+);
+
+g.addColorStop(0,f.c1);
+g.addColorStop(1,f.c2);
+
+ctx.fillStyle=g;
+ctx.fillRect(0,0,1080,1350);
+
+ctx.fillStyle="rgba(255,255,255,.12)";
+
+for(let i=0;i<18;i++){
+
+ctx.beginPath();
+
+ctx.arc(
+(i*197)%1080,
+100+(i*131)%1250,
+30+(i%5)*12,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
 }
-nameEl.addEventListener("input",draw);sel.addEventListener("change",draw);
-photoEl.addEventListener("change",e=>{const file=e.target.files[0];if(!file)return;const img=new Image();img.onload=()=>{photo=img;draw()};img.src=URL.createObjectURL(file)});
-document.getElementById("download").onclick=()=>{const a=document.createElement("a");a.download="festival-greeting.png";a.href=canvas.toDataURL("image/png");a.click()};
-document.getElementById("whatsapp").onclick=async()=>{
-  const f=festivals.find(x=>x.id===sel.value)||festivals[0], n=(nameEl.value||"").trim();
-  const text=`${f.title} 🙏\n${f.msg}\n\n${n?`- ${n}`:""}\n\nअपना भी greeting card बनाएं ❤️`;
-  if(navigator.share){
-    try{
-      const blob=await new Promise(r=>canvas.toBlob(r,"image/png"));
-      const file=new File([blob],"festival-greeting.png",{type:"image/png"});
-      if(navigator.canShare && navigator.canShare({files:[file]})){await navigator.share({text,files:[file]});return;}
-    }catch(e){}
-  }
-  window.open("https://wa.me/?text="+encodeURIComponent(text)," _blank");
-};
+
+ctx.fillStyle="#fff";
+ctx.textAlign="center";
+
+ctx.font="bold 72px sans-serif";
+ctx.fillText(f.emoji,540,115);
+
+ctx.font="bold 60px sans-serif";
+
+ctx.fillText(
+fitText(
+f.title,
+900,
+"bold 60px sans-serif"
+),
+540,
+200
+);
+
+ctx.font="34px sans-serif";
+
+ctx.fillText(
+fitText(
+f.sub,
+900,
+"34px sans-serif"
+),
+540,
+255
+);
+
+ctx.save();
+
+ctx.beginPath();
+
+ctx.arc(
+540,
+650,
+230,
+0,
+Math.PI*2
+);
+
+ctx.closePath();
+ctx.clip();
+
+if(photo){
+
+const r=
+Math.max(
+460/photo.width,
+460/photo.height
+);
+
+const w=photo.width*r;
+const h=photo.height*r;
+
+ctx.drawImage(
+photo,
+540-w/2,
+650-h/2,
+w,
+h
+);
+
+}
+else{
+
+ctx.fillStyle="rgba(255,255,255,.22)";
+ctx.fillRect(300,420,480,460);
+
+ctx.fillStyle="#fff";
+ctx.font="bold 38px sans-serif";
+
+ctx.fillText(
+"अपनी फोटो लगाएं",
+540,
+665
+);
+
+}
+
+ctx.restore();
+
+ctx.strokeStyle="#fff";
+ctx.lineWidth=10;
+
+ctx.beginPath();
+
+ctx.arc(
+540,
+650,
+235,
+0,
+Math.PI*2
+);
+
+ctx.stroke();
+
+ctx.font="bold 58px sans-serif";
+
+ctx.fillText(
+fitText(
+n,
+850,
+"bold 58px sans-serif"
+),
+540,
+970
+);
+
+ctx.font="bold 40px sans-serif";
+
+ctx.fillText(
+fitText(
+f.msg,
+900,
+"bold 40px sans-serif"
+),
+540,
+1040
+);
+
+ctx.font="30px sans-serif";
+
+ctx.fillText(
+"आपकी शुभकामनाओं के साथ ❤️",
+540,
+1130
+);
+
+ctx.font="24px sans-serif";
+ctx.globalAlpha=.85;
+
+ctx.fillText(
+"Apni Shubhkamna",
+540,
+1260
+);
+
+ctx.globalAlpha=1;
+
+}
+
+nameEl.addEventListener("input",draw);
+
+sel.addEventListener("change",draw);
+
+photoEl.addEventListener(
+"change",
+e=>{
+
+const file=e.target.files[0];
+
+if(!file)return;
+
+const img=new Image();
+
+img.onload=()=>{
+photo=img;
 draw();
+};
+
+img.src=URL.createObjectURL(file);
+
+}
+);
+
+document.getElementById("download").onclick=()=>{
+
+const a=document.createElement("a");
+
+a.download="festival-greeting.png";
+
+a.href=
+canvas.toDataURL("image/png");
+
+a.click();
+
+};
+
+
+/* WHATSAPP LINK SHARE */
+
+document.getElementById("whatsapp").onclick=()=>{
+
+const f=
+festivals.find(x=>x.id===sel.value)
+||festivals[0];
+
+/*
+IMPORTANT:
+Ye tumhari website ka link hai.
+Isi link ko WhatsApp par bheja jayega.
+*/
+
+const siteUrl=
+"https://subhakmana01.github.io/apni-shubhkamna/";
+
+const text=
+`${f.title} 🙏
+
+${f.msg} ❤️
+
+अपना नाम और फोटो लगाकर आप भी अपना शुभकामना कार्ड बनाएं 👇
+
+${siteUrl}
+
+✨ Apni Shubhkamna`;
+
+window.open(
+"https://wa.me/?text="+
+encodeURIComponent(text),
+"_blank"
+);
+
+};
+
+draw();
+
 </script>
+
 </body>
 </html>
